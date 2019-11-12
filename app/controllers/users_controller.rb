@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) # ストロングパラメータ設定
     if @user.save
-
+      redirect_to user_path(@user.id)
     else
       render 'new'
     end
