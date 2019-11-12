@@ -5,6 +5,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params) # ストロングパラメータ設定
+    if @user.save
+      
+    else
+      render 'new'
   end
 
   private
