@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    param.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
     # userキーのpermit以下のパラメータのみ受け取るという意味
   end
 
