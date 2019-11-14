@@ -1,15 +1,16 @@
 h1 ブログ一覧
 
-table.table.table-striped
-  tr
-    th タイトル
-    th 内容
-
-- @blogs.each do |blog|
-  tr
-    td = blog.title
-    td = blog.content
-    td = link_to '詳細を確認する', blog_path(blog.id)
-    td = link_to 'ブログを編集する', edit_blog_path(blog.id)
+table.table.table-hover
+  thead.thead-default
+    tr
+      th タイトル
+      th 内容
+  tbody
+  - @blogs.each do |blog|
+    tr
+      td = blog.title
+      td = blog.content
+      td = link_to '詳細を確認する', blog_path(blog.id)
+      td = link_to 'ブログを編集する', edit_blog_path(blog.id)
 
 = link_to '新しくブログを投稿する', new_blog_path
