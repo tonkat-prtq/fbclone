@@ -1,2 +1,13 @@
-h1 Blogs#index
-p Find me in app/views/blogs/index.html.slim
+h1 ブログ一覧
+
+table
+  tr
+    th タイトル
+    th 内容
+
+- @blogs.each do |blog|
+  tr
+    td = blog.title
+    td = blog.content
+
+= link_to '新しくブログを投稿する', new_blog_path
