@@ -9,5 +9,6 @@ table
   tr
     td = blog.title
     td = blog.content
+    td = link_to '詳細を確認する', blog_path(blog.id)
 
 = link_to '新しくブログを投稿する', new_blog_path
