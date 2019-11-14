@@ -1,4 +1,4 @@
-= form_with(model: Blog.new, local: true) do |f|
+= form_with(model: @blog, local: true) do |f|
   div.blog_title
     = f.label :title
     = f.text_field :title
