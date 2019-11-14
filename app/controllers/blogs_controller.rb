@@ -9,7 +9,7 @@ class BlogsController < ApplicationController
 
   def create
     Blog.create(blog_params)
-    redirect_to new_blogs_path
+    redirect_to new_blog_path
   end
 
   def show
