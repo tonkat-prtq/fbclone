@@ -28,10 +28,14 @@ class BlogsController < ApplicationController
   end
 
   def update
-    if @blog.update(blog_params)
-      redirect_to blogs_path, notice: "ブログを編集しました"
-    else
+    if params[:back]
       render :edit
+    else
+      if @blog.update(blog_params)
+        redirect_to blogs_path, notice: "ブログを編集しました！"
+      else
+        render :edit
+      end
     end
   end
 
@@ -42,13 +46,14 @@ class BlogsController < ApplicationController
 
   def confirm
     @blog = Blog.new(blog_params)
+    @blog.id = params[:id]
     render :new if @blog.invalid?
   end
 
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:id, :title, :content)
   end
 
   def set_blog
