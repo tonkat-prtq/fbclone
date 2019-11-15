@@ -1,15 +1,3 @@
-= form_with(model: @blog, local: true) do |f|
-  - if @blog.errors.any?
-    div#error_explanation
-      h2 #{@blog.errors.count}件のエラーがあります。
-      ul
-      - @blog.errors.full_messages.each do |msg|
-        li #{msg}
+h2 編集画面
 
-  div.blog_title
-    = f.label :title
-    = f.text_field :title
-  div.blog_content
-    = f.label :content
-    = f.text_field :content
-  = f.submit
+== render 'form'
