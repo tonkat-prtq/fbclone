@@ -9,13 +9,13 @@ module BlogsHelper
 
   def confirm_new_or_edit
     unless @blog.id?
-      blogs_path
+      blogs_path # 投稿完了画面？
     else
       blog_path
     end
   end
 
   def confirm_form_method
-    @blog.id ? 'patch' : 'post'
+    @blog.id ? 'patch' : 'post' # @blog.idが存在する(=true)のとき、httpメソッドがpatch, 存在しないときはpost
   end
 end

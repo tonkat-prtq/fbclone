@@ -10,7 +10,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
-    if param[:back]
+    if params[:back]
       render 'new'
     else
       if @blog.save
