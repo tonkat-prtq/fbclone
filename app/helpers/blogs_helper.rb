@@ -9,7 +9,7 @@ module BlogsHelper
 
   def confirm_new_or_edit
     unless @blog.id?
-      blogs_path # 投稿完了画面？
+      blogs_path # blogs_pathはメソッドでindexかcreateに移動先が別れる。メソッドの指定はconfirm_form_methodで指定する。
     else
       blog_path
     end
