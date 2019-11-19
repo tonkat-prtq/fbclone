@@ -2,8 +2,7 @@ p#notice = notice
 
 p
   strong Image:
-  = @feed.image
+  = image_tag @feed.image.url
 
-=> link_to 'Edit', edit_feed_path(@feed)
-'|
-=< link_to 'Back', feeds_path
+= link_to 'Edit', edit_feed_path(@feed)
+= link_to 'Back', feeds_path
