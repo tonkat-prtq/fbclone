@@ -6,6 +6,7 @@ class BlogsController < ApplicationController
 
   def new
     @blog = Blog.new
+    @blog.feeds.build
   end
 
   def create
@@ -54,7 +55,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:id, :title, :content)
+    params.require(:blog).permit(:id, :title, :content, feeds_attributes: [:id, :image])
   end
 
   def set_blog

@@ -12,6 +12,10 @@
   div.blog_content
     = f.label :content
     = f.text_field :content
+  = f.fields_for :feeds, @blog.feeds.build do |p|
+    div.blog_feeds
+      = p.label :image
+      = p.file_field :image
   = f.submit
 
 = link_to 'ブログ一覧画面に戻る', blogs_path
