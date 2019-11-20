@@ -55,7 +55,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:id, :title, :content, feeds_attributes: [:id, :image])
+    params.require(:blog).permit(:id, :title, :content, feeds_attributes: [:id, :image, :image_cache])
   end
 
   def set_blog
