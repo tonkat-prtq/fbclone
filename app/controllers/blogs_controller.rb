@@ -6,6 +6,7 @@ class BlogsController < ApplicationController
 
   def new
     @blog = Blog.new
+    @blog.feeds.build
   end
 
   def create
@@ -49,15 +50,16 @@ class BlogsController < ApplicationController
     @blog = current_user.blogs.build(blog_params)
     @blog.id = params[:id]
     render :new if @blog.invalid?
+    binding.pry
   end
 
   private
 
   def blog_params
-    params.require(:blog).permit(:id, :title, :content)
+    params.require(:blog).permit(:id, :title, :content, feeds_attributes: [:id, :image, :image_cache])
   end
 
   def set_blog
-    @blog = Blog.find(params[:id])
+    @blog = Blog.find(params[:id]) 
   end
 end
