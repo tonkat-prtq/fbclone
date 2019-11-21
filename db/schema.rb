@@ -49,6 +49,4 @@ ActiveRecord::Schema.define(version: 2019_11_19_121942) do
   end
 
   add_foreign_key "blogs", "users"
-  add_foreign_key "feeds", "blogs"
-  add_foreign_key "feeds", "users"
 end
