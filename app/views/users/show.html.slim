@@ -1,6 +1,6 @@
 h1
-  |#{@user.name} のページ
+  | #{current_user.name} のページ
 p
-  | メールアドレス: #{@user.email}
+  | メールアドレス: #{current_user.email}
 
 = link_to 'ブログ一覧画面', blogs_path
