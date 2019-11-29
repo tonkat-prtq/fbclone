@@ -1,23 +1,37 @@
-h1 ブログ一覧
-
-table.table.table-hover
-  thead.thead-default
-    tr
-      th タイトル
-      th 内容
-      th 投稿者
-      th 画像
-      th
-      th
-  tbody
-  - @blogs.each do |blog|
-    tr
-      td = blog.title
-      td = blog.content
-      td = blog.user.name
-      td = image_tag(blog.image.url(:thumb))
-      td = link_to '詳細を確認する', blog_path(blog.id)
-      td = link_to 'ブログを編集する', edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' }
-      td = link_to 'ブログを削除する', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' }
+.card-deck
+  .row
+    - @blogs.each do |blog| 
+      .col-sm-4
+        .card
+          .card-header #{blog.user.name}
+          .card-body
+            h5.card-title = link_to "#{blog.title}", blog_path(blog.id)
+            p.card-text = blog.content
+            img.card-img.pb-2 alt="card image" src="#{blog.image.url}" /
+            small.text-muted = time_ago_in_words(blog.created_at)
 
 = link_to '新しくブログを投稿する', new_blog_path
+/ h1 ブログ一覧
+
+/ table.table.table-hover
+/   thead.thead-default
+/     tr
+/       th タイトル
+/       th 内容
+/       th 投稿者
+/       th 画像
+/       th
+/       th
+/       th
+/   tbody
+/   - @blogs.each do |blog|
+/     tr
+/       td = blog.title
+/       td = blog.content
+/       td = blog.user.name
+/       td = image_tag(blog.image.url(:thumb))
+/       td = link_to '詳細を確認する', blog_path(blog.id)
+/       td = link_to 'ブログを編集する', edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' }
+/       td = link_to 'ブログを削除する', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' }
+
+/ = link_to '新しくブログを投稿する', new_blog_path
