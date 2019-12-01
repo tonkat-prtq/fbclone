@@ -5,7 +5,12 @@ class BlogsController < ApplicationController
   end
 
   def new
-    @blog = Blog.new
+    if params[:back]
+      @blog = current_user.blogs.build(blog_params)
+      render 'new'
+    else
+      @blog = Blog.new
+    end
   end
 
   def create
@@ -26,6 +31,8 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    @blog.image.cache! unless @blog.image.blank? # 既に画像が存在する場合にキャッシュを作成する
+    binding.pry
   end
 
   def update
