@@ -32,7 +32,6 @@ class BlogsController < ApplicationController
 
   def edit
     @blog.image.cache! unless @blog.image.blank? # 既に画像が存在する場合にキャッシュを作成する
-    binding.pry
   end
 
   def update
